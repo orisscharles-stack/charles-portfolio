@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charles Oriss — Full-Stack Developer</title>
+  <meta name="description" content="Charles Oriss — Full-Stack Developer Trainee, Johannesburg. React, Next.js, Tailwind CSS.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE LOADER — Developer terminal style
+══════════════════════════════════════════ -->
+<div id="loader">
+  <div id="loader-terminal">
+
+    <!-- TOP BAR — fake terminal chrome -->
+    <div id="loader-topbar">
+      <div class="lt-dots">
+        <span class="lt-dot lt-red"></span>
+        <span class="lt-dot lt-yellow"></span>
+        <span class="lt-dot lt-green"></span>
+      </div>
+      <span class="lt-title">portfolio.exe — zsh</span>
+    </div>
+
+    <!-- TERMINAL BODY — lines type in one by one -->
+    <div id="loader-body">
+      <div class="ll" id="ll1"><span class="lt-prompt">~</span><span class="lt-cmd"> node portfolio.js</span></div>
+      <div class="ll" id="ll2"><span class="lt-out lt-dim">▶ Initialising modules...</span></div>
+      <div class="ll" id="ll3"><span class="lt-out lt-dim">▶ Loading React.js</span><span class="lt-ok">  ✓</span></div>
+      <div class="ll" id="ll4"><span class="lt-out lt-dim">▶ Loading Next.js</span><span class="lt-ok">  ✓</span></div>
+      <div class="ll" id="ll5"><span class="lt-out lt-dim">▶ Loading Tailwind CSS</span><span class="lt-ok">  ✓</span></div>
+      <div class="ll" id="ll6"><span class="lt-out lt-dim">▶ Compiling assets...</span></div>
+      <div class="ll" id="ll7"><span class="lt-out lt-acid">✦ Build successful</span></div>
+      <div class="ll" id="ll8">
+        <span class="lt-prompt">~</span>
+        <span class="lt-cmd"> Launching </span>
+        <span class="lt-name">CHARLES ORISS</span>
+        <span class="lt-blink">▌</span>
+      </div>
+    </div>
+
+    <!-- PROGRESS BAR at bottom of terminal -->
+    <div id="loader-progress">
+      <span id="loader-pct">0%</span>
+      <div id="loader-track"><div id="loader-fill"></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+
+  <!--
+    CURSOR:
+    The acid-yellow pixel arrow cursor is defined
+    in style.css using a CSS data URL.
+    It is rendered by the OS/browser itself —
+    nothing in the DOM can ever hide it.
+
+    The #glow div adds the ring hover effect on top.
+  -->
+  
+
+  <!-- PARTICLE BACKGROUND -->
+  <canvas id="canvas"></canvas>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a href="#" class="nav-logo">Charles Oriss</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Project</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <div class="nav-avail">Open to Work</div>
+      <!-- Hamburger — only visible on mobile via CSS -->
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile full-screen menu -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Project</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section id="hero">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+      <div class="hero-index">Full-Stack Developer Trainee — 2026</div>
+      <div class="hero-year">Johannesburg, ZA</div>
+
+      <h1 class="hero-name">
+        <span class="line-first" id="name-first" data-text="CHARLES">CHARLES</span>
+        <span class="line-last"  id="name-last"  data-text="ORISS">ORISS</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <p class="hero-role">
+          <strong>Full-Stack Developer Trainee</strong> — React, Next.js &amp; Node.js.<br>
+          Building scalable, user-centric web applications.
+        </p>
+        <div class="hero-cta">
+          <div class="magnetic">
+            <a href="#work" class="icon-btn icon-btn-solid">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+              </svg>
+              View Project
+            </a>
+          </div>
+          <div class="magnetic">
+            <a href="#contact" class="icon-btn icon-btn-outline">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+              Let's Talk
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat R d1">
+          <div class="hstat-num" data-count="6" data-suffix="+">0</div>
+          <div class="hstat-label">Projects built</div>
+        </div>
+        <div class="hstat R d2">
+          <div class="hstat-num" data-count="1">0</div>
+          <div class="hstat-label">Certification</div>
+        </div>
+        <div class="hstat R d3">
+          <div class="hstat-num" style="font-size:18px;">React</div>
+          <div class="hstat-label">Primary stack</div>
+        </div>
+        <div class="hstat R d4">
+          <div class="hstat-num">∞</div>
+          <div class="hstat-label">Drive to grow</div>
+        </div>
+      </div>
+
+      <div class="scroll-ind">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker">
+      <div class="ticker-track">
+        <span class="ticker-item">React.js</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Next.js</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">JavaScript</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Tailwind CSS</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Framer Motion</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Node.js</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Supabase</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Git / GitHub</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Figma</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Vercel</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Microsoft PL-900</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">React.js</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Next.js</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">JavaScript</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Tailwind CSS</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Framer Motion</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Node.js</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Supabase</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Git / GitHub</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Figma</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Vercel</span><span class="ticker-item accent">✦</span>
+        <span class="ticker-item">Microsoft PL-900</span><span class="ticker-item accent">✦</span>
+      </div>
+    </div>
+
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about">
+      <div class="about-left R">
+        <div class="about-label">About</div>
+        <h2 class="about-heading">Build.<br>Learn.<br><em>Ship.</em></h2>
+      </div>
+      <div class="about-right">
+        <div class="about-body R d1">
+          <p>I'm a <strong>Full-Stack Developer Trainee</strong> based in Johannesburg, South Africa, with hands-on experience in React and modern web technologies.</p>
+          <p>Currently gaining practical experience at <strong>ITTHYNK Solutions</strong>, where I focus on frontend development and responsive UI design — Tailwind CSS, performance optimisation, and collaborating via Git and GitHub.</p>
+          <p>Certified in <strong>Microsoft Power Platform Fundamentals (PL-900)</strong>. Actively expanding expertise across backend, database design, and software architecture.</p>
+        </div>
+        <div class="about-stats R d2">
+          <div class="astat"><div class="astat-n">6<span class="astat-u">+</span></div><div class="astat-l">Projects built</div></div>
+          <div class="astat"><div class="astat-n">1</div><div class="astat-l">Certification</div></div>
+          <div class="astat"><div class="astat-n">JS</div><div class="astat-l">Core language</div></div>
+          <div class="astat"><div class="astat-n">ZA</div><div class="astat-l">Johannesburg</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ EXPERIENCE ═══ -->
+    <section id="experience">
+      <p class="section-label R">Experience</p>
+      <h2 class="section-title R d1">Where I've Worked</h2>
+      <div class="exp-grid">
+        <div class="exp-timeline R d2">
+          <div class="exp-row active"
+            data-detail="<div class='exp-detail-title'>IT Intern — Frontend Developer</div><div class='exp-detail-co'>ITTHYNK Solutions &nbsp;·&nbsp; Johannesburg &nbsp;·&nbsp; Sep 2025 – Present</div><ul class='exp-bullets'><li>Designed and developed responsive UI layouts using React.js, ensuring optimal user experience across multiple devices and screen sizes.</li><li>Styled web applications with Tailwind CSS, delivering clean, modern interfaces that align precisely with design specifications.</li><li>Optimised frontend performance through code analysis, component refactoring, and best-practices implementation.</li><li>Collaborated with the development team using Git and GitHub, contributing to code reviews and maintaining version control standards.</li><li>Created technical documentation and development guides to support team knowledge sharing and project continuity.</li></ul>">
+            <div class="exp-role">Frontend Developer Intern</div>
+            <div class="exp-company">ITTHYNK Solutions</div>
+            <div class="exp-period">Sep 2025 — Present</div>
+          </div>
+        </div>
+        <div class="exp-detail R d3" id="expDetail" style="opacity:0;"></div>
+      </div>
+    </section>
+
+    <!-- ═══ PROJECT ═══ -->
+    <section id="work">
+      <p class="section-label R">Featured Project</p>
+      <h2 class="section-title R d1">Restaurant Website</h2>
+
+      <div class="restaurant-card R d2">
+        <div class="rc-image">
+          <!--
+            ADD YOUR PHOTO:
+            1. Put your image in the same folder as index.html
+            2. Change src="" to your filename e.g. src="restaurant.jpg"
+            3. The SVG illustration hides automatically once your photo loads
+          -->
+          <img id="rc-photo" src="images/Tonias.png" alt="La Maison Restaurant" class="rc-photo">
+
+          <div id="rc-svg-fallback" class="rc-svg-fallback">
+            <svg width="100%" height="100%" viewBox="0 0 900 380" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="bgG" x1="0" y1="0" x2="900" y2="380" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#08121e"/><stop offset="50%" stop-color="#0d1a28"/><stop offset="100%" stop-color="#060e18"/>
+                </linearGradient>
+                <linearGradient id="coneG" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#d8ff00" stop-opacity="0.4"/><stop offset="100%" stop-color="#d8ff00" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect width="900" height="380" fill="url(#bgG)"/>
+              <ellipse cx="450" cy="190" rx="320" ry="180" fill="rgba(216,255,0,0.06)"/>
+              <g opacity="0.15" stroke="#d8ff00" stroke-width="0.5">
+                <line x1="450" y1="270" x2="0" y2="350"/><line x1="450" y1="270" x2="90" y2="350"/>
+                <line x1="450" y1="270" x2="180" y2="350"/><line x1="450" y1="270" x2="270" y2="350"/>
+                <line x1="450" y1="270" x2="360" y2="350"/><line x1="450" y1="270" x2="450" y2="350"/>
+                <line x1="450" y1="270" x2="540" y2="350"/><line x1="450" y1="270" x2="630" y2="350"/>
+                <line x1="450" y1="270" x2="720" y2="350"/><line x1="450" y1="270" x2="810" y2="350"/>
+                <line x1="450" y1="270" x2="900" y2="350"/>
+                <line x1="0" y1="308" x2="900" y2="308" opacity="0.5"/>
+                <line x1="0" y1="326" x2="900" y2="326" opacity="0.3"/>
+              </g>
+              <ellipse cx="450" cy="252" rx="115" ry="26" fill="#0d1e30" stroke="#d8ff00" stroke-width="0.8"/>
+              <rect x="445" y="218" width="10" height="25" rx="2" fill="#1a2a3a" stroke="#d8ff00" stroke-width="0.6"/>
+              <ellipse cx="450" cy="217" rx="6" ry="3" fill="#d8ff00" opacity="0.9"/>
+              <ellipse cx="450" cy="208" rx="4" ry="7" fill="#d8ff00" opacity="0.7"/>
+              <ellipse cx="450" cy="205" rx="2" ry="4" fill="white" opacity="0.6"/>
+              <g transform="translate(346,196)" stroke="#d8ff00" stroke-width="0.8" fill="none" opacity="0.8">
+                <path d="M10 0 C0 11 -7 20 -2 30 L12 30 C18 20 10 11 10 0Z" fill="rgba(216,255,0,0.07)"/>
+                <line x1="10" y1="30" x2="10" y2="44"/><ellipse cx="10" cy="44" rx="7" ry="2"/>
+              </g>
+              <g transform="translate(534,196)" stroke="#d8ff00" stroke-width="0.8" fill="none" opacity="0.8">
+                <path d="M10 0 C0 11 -7 20 -2 30 L12 30 C18 20 10 11 10 0Z" fill="rgba(216,255,0,0.07)"/>
+                <line x1="10" y1="30" x2="10" y2="44"/><ellipse cx="10" cy="44" rx="7" ry="2"/>
+              </g>
+              <ellipse cx="394" cy="260" rx="30" ry="8" fill="#0a1824" stroke="#d8ff00" stroke-width="0.6" opacity="0.8"/>
+              <ellipse cx="506" cy="260" rx="30" ry="8" fill="#0a1824" stroke="#d8ff00" stroke-width="0.6" opacity="0.8"/>
+              <g stroke="#d8ff00" stroke-width="0.7" fill="none" opacity="0.4">
+                <rect x="290" y="234" width="56" height="38" rx="2" fill="rgba(216,255,0,0.03)"/>
+                <line x1="294" y1="272" x2="289" y2="298"/><line x1="342" y1="272" x2="347" y2="298"/>
+                <rect x="290" y="204" width="56" height="30" rx="3" fill="rgba(216,255,0,0.04)"/>
+              </g>
+              <g stroke="#d8ff00" stroke-width="0.7" fill="none" opacity="0.4">
+                <rect x="554" y="234" width="56" height="38" rx="2" fill="rgba(216,255,0,0.03)"/>
+                <line x1="558" y1="272" x2="553" y2="298"/><line x1="606" y1="272" x2="611" y2="298"/>
+                <rect x="554" y="204" width="56" height="30" rx="3" fill="rgba(216,255,0,0.04)"/>
+              </g>
+              <g transform="translate(80,48)" stroke="#d8ff00" stroke-width="0.7" fill="none" opacity="0.45">
+                <path d="M0 168 L0 48 Q0 0 38 0 Q76 0 76 48 L76 168Z" fill="rgba(216,255,0,0.03)"/>
+                <path d="M0 18 Q18 56 9 94 L0 168" fill="rgba(216,255,0,0.06)"/>
+                <path d="M76 18 Q58 56 67 94 L76 168" fill="rgba(216,255,0,0.06)"/>
+              </g>
+              <g transform="translate(744,48)" stroke="#d8ff00" stroke-width="0.7" fill="none" opacity="0.45">
+                <path d="M0 168 L0 48 Q0 0 38 0 Q76 0 76 48 L76 168Z" fill="rgba(216,255,0,0.03)"/>
+                <path d="M0 18 Q18 56 9 94 L0 168" fill="rgba(216,255,0,0.06)"/>
+                <path d="M76 18 Q58 56 67 94 L76 168" fill="rgba(216,255,0,0.06)"/>
+              </g>
+              <g stroke="#d8ff00" stroke-width="0.5" opacity="0.65">
+                <line x1="302" y1="0" x2="302" y2="72"/><ellipse cx="302" cy="74" rx="12" ry="5" fill="rgba(216,255,0,0.12)"/><ellipse cx="302" cy="72" rx="17" ry="19" fill="rgba(216,255,0,0.06)"/>
+                <line x1="450" y1="0" x2="450" y2="64"/><ellipse cx="450" cy="66" rx="12" ry="5" fill="rgba(216,255,0,0.2)"/><ellipse cx="450" cy="62" rx="21" ry="24" fill="rgba(216,255,0,0.09)"/>
+                <line x1="598" y1="0" x2="598" y2="72"/><ellipse cx="598" cy="74" rx="12" ry="5" fill="rgba(216,255,0,0.12)"/><ellipse cx="598" cy="72" rx="17" ry="19" fill="rgba(216,255,0,0.06)"/>
+              </g>
+              <path d="M302 80 L268 188 L336 188Z" fill="url(#coneG)" opacity="0.25"/>
+              <path d="M450 72 L408 192 L492 192Z" fill="url(#coneG)" opacity="0.30"/>
+              <path d="M598 80 L564 188 L632 188Z" fill="url(#coneG)" opacity="0.25"/>
+              <text x="450" y="34" text-anchor="middle" fill="rgba(216,255,0,0.75)" font-family="Georgia,serif" font-size="22" font-style="italic" letter-spacing="7">TONIAS EAT 'N' FEEL</text>
+              <line x1="330" y1="43" x2="425" y2="43" stroke="rgba(216,255,0,0.22)" stroke-width="0.5"/>
+              <line x1="475" y1="43" x2="570" y2="43" stroke="rgba(216,255,0,0.22)" stroke-width="0.5"/>
+              <text x="450" y="57" text-anchor="middle" fill="rgba(216,255,0,0.3)" font-family="sans-serif" font-size="8" letter-spacing="5">FINE DINING EXPERIENCE</text>
+            </svg>
+          </div>
+
+          <div class="rc-image-overlay"></div>
+          <div class="rc-img-badge">In Development(live)</div>
+          <div class="rc-img-num">01 / 01</div>
+        </div>
+
+        <div class="rc-content">
+          <div class="rc-left">
+            <h3 class="rc-title">Tonias Eat 'N' Feel Restaurant Website</h3>
+            <p class="rc-desc">A full-featured restaurant website with a dynamic menu showcase, online booking and ordering system. Built with Next.js, React, Typescript, and Tailwind CSS deployed on Vercel.</p>
+            <div class="rc-tags">
+              <span class="ptag">Next.js</span><span class="ptag">Tailwind CSS</span>
+              <span class="ptag">MDX</span><span class="ptag">Framer Motion</span><span class="ptag">Vercel</span>
+            </div>
+            <div class="rc-progress">
+              <div class="rc-progress-label"><span>Development progress</span><span>65%</span></div>
+              <div class="rc-progress-track"><div class="rc-progress-fill" data-progress="65"></div></div>
+            </div>
+          </div>
+          <div class="rc-right">
+            <ul class="rc-features">
+              <li>Responsive menu showcase with category filtering</li>
+              <li>Online reservation system with date &amp; time selection</li>
+              <li>MDX content management — no code changes for menu updates</li>
+              <li>Framer Motion page transitions and micro-animations</li>
+              <li>Vercel Analytics for real-time visitor insights</li>
+              <li>Performance-first — optimised images, lazy loading, SSR</li>
+            </ul>
+            <div class="rc-link">
+              <div class="magnetic">
+                <a href="https://toniaseatnfeel.vercel.app" target="_blank" class="icon-btn icon-btn-solid" style="padding:10px 18px;font-size:9px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+              <div class="magnetic">
+                <a href="https://github.com/orisscharles-stack" target="_blank" rel="noopener" class="icon-btn icon-btn-outline" style="padding:10px 18px;font-size:9px;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                  </svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CERTS ═══ -->
+    <section id="awards">
+      <div class="aw-grid">
+        <div class="aw-label R">Certifications &amp; Education</div>
+        <div class="aw-list R d1">
+          <div class="aw-row"><span class="aw-name">Microsoft PL-900</span><div class="aw-right"><span class="aw-cat">Power Platform Fundamentals</span><span class="aw-year">Jan 2026</span></div></div>
+          <div class="aw-row"><span class="aw-name">National Senior Certificate</span><div class="aw-right"><span class="aw-cat">Grade 12</span><span class="aw-year">2023</span></div></div>
+          <div class="aw-row"><span class="aw-name">ITTHYNK Solutions</span><div class="aw-right"><span class="aw-cat">Frontend Developer Intern</span><span class="aw-year">2025 – Now</span></div></div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ═══════════════════════════════════════════
+     WHAT I DO
+═══════════════════════════════════════════ -->
+<section id="whatido">
+  <p class="section-label R">What I Do</p>
+  <h2 class="section-title R d1">Services I Offer</h2>
+
+  <div class="services-grid">
+
+    <!-- Card 1 -->
+    <div class="svc-card R d1">
+      <div class="svc-num">01</div>
+      <div class="svc-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+      </div>
+      <h3 class="svc-title">Frontend Development</h3>
+      <p class="svc-desc">Building responsive, pixel-perfect user interfaces with clean, maintainable code. From landing pages to full web applications — performance-first always.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">React.js</span>
+        <span class="svc-tag">Next.js</span>
+        <span class="svc-tag">Tailwind CSS</span>
+        <span class="svc-tag">Framer Motion</span>
+      </div>
+      <div class="svc-ghost">01</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="svc-card R d2">
+      <div class="svc-num">02</div>
+      <div class="svc-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+        </svg>
+      </div>
+      <h3 class="svc-title">UI / UX Design</h3>
+      <p class="svc-desc">Designing clean, user-centred interfaces(usually in canve) before writing a single line of code. I care about how things feel, not just how they look.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Figma</span>
+        <span class="svc-tag">Prototyping</span>
+        <span class="svc-tag">Responsive Design</span>
+      </div>
+      <div class="svc-ghost">02</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="svc-card R d3">
+      <div class="svc-num">03</div>
+      <div class="svc-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+        </svg>
+      </div>
+      <h3 class="svc-title">Performance Optimisation</h3>
+      <p class="svc-desc">Auditing and refactoring existing codebases for speed, accessibility, and Lighthouse scores. Fast sites convert better — I make them fast.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Core Web Vitals</span>
+        <span class="svc-tag">Lighthouse</span>
+        <span class="svc-tag">SSR / SSG</span>
+      </div>
+      <div class="svc-ghost">03</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PROCESS
+═══════════════════════════════════════════ -->
+<section id="process">
+  <p class="section-label R">How I Work</p>
+  <h2 class="section-title R d1">My Process</h2>
+
+  <div class="process-list">
+
+    <div class="process-row R d1">
+      <div class="process-num">01</div>
+      <div class="process-title">Understand the Problem</div>
+      <div class="process-desc">Before I open VS Code, I ask questions. Who is this for? What problem does it solve? What does success look like? Good code starts with a clear brief.</div>
+    </div>
+
+    <div class="process-row R d2">
+      <div class="process-num">02</div>
+      <div class="process-title">Come up with a solution in steps</div>
+      <div class="process-desc">I break down complex problems into smaller, manageable tasks and develop a step-by-step approach to solving them.</div>
+    </div>
+
+    <div class="process-row R d3">
+      <div class="process-num">03</div>
+      <div class="process-title">Build Clean, Componentised Code</div>
+      <div class="process-desc">I write React components that are reusable, readable, and easy to hand off. No clever hacks — just clean, structured code that a team can work with.</div>
+    </div>
+
+    <div class="process-row R d4">
+      <div class="process-num">04</div>
+      <div class="process-title">Test, Optimise &amp; Deploy</div>
+      <div class="process-desc">I test across devices and browsers, audit performance, and deploy via Vercel with CI/CD. The finish line is a live, fast, accessible product.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CURRENTLY
+═══════════════════════════════════════════ -->
+<section id="currently">
+  <p class="section-label R">Right Now</p>
+  <h2 class="section-title R d1">Currently</h2>
+
+  <div class="currently-grid">
+
+    <!-- Learning -->
+    <div class="cur-card R d1">
+      <div class="cur-card-label">Learning</div>
+
+      <div class="cur-item">
+        <div class="cur-dot"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">Next.js App Router</div>
+          <div class="cur-item-sub">Deep-diving into Server Components, streaming, and the new data fetching patterns.</div>
+          <span class="cur-status active">In Progress</span>
+        </div>
+      </div>
+
+      <div class="cur-item">
+        <div class="cur-dot"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">Node.js &amp; Express</div>
+          <div class="cur-item-sub">Building REST APIs and understanding backend fundamentals to grow into full-stack.</div>
+          <span class="cur-status active">In Progress</span>
+        </div>
+      </div>
+
+      <div class="cur-item">
+        <div class="cur-dot dim"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">TypeScript</div>
+          <div class="cur-item-sub">Adding type safety to all new projects. Making bugs a thing of the past.</div>
+          <span class="cur-status planned">Planned</span>
+        </div>
+      </div>
+
+      <div class="cur-item">
+        <div class="cur-dot dim"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">PostgreSQL &amp; Supabase</div>
+          <div class="cur-item-sub">Relational databases, queries, and real-time subscriptions with Supabase.</div>
+          <span class="cur-status planned">Planned</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Building -->
+    <div class="cur-card R d2">
+      <div class="cur-card-label">Building</div>
+
+      <div class="cur-item">
+        <div class="cur-dot"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">Tonia's Eat 'N' Feel Restaurant Website</div>
+          <div class="cur-item-sub">Next.js, Tailwind CSS, MDX, booking system. Currently at 65% — targeting launch Q2 2026.</div>
+          <span class="cur-status active">65% Complete</span>
+        </div>
+      </div>
+
+      <div class="cur-item">
+        <div class="cur-dot"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">This Portfolio</div>
+          <div class="cur-item-sub">Continuously improving — adding sections, refining animations, and keeping skills up to date.</div>
+          <span class="cur-status active">Live &amp; Evolving</span>
+        </div>
+      </div>
+
+      <div class="cur-item">
+        <div class="cur-dot dim"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">AI Chat Application</div>
+          <div class="cur-item-sub">React + Node.js + OpenAI + WebSocket. Real-time AI conversations with a clean UI.</div>
+          <span class="cur-status planned">Starting Soon</span>
+        </div>
+      </div>
+
+      <div class="cur-item">
+        <div class="cur-dot dim"></div>
+        <div class="cur-item-text">
+          <div class="cur-item-title">E-Commerce Platform</div>
+          <div class="cur-item-sub">Next.js + Stripe + MongoDB. Full checkout flow with product management dashboard.</div>
+          <span class="cur-status planned">Planned</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ═══ SKILLS ═══ -->
+    <section id="skills">
+      <p class="section-label R">Skills</p>
+      <h2 class="section-title R d1">Tech Stack</h2>
+      <div class="skills-grid" id="skillsGrid">
+        <div class="sk R d1"><div class="sk-name">JavaScript</div><div class="sk-cat">Core Language</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="82"></div></div><div class="sk-ghost">82</div></div>
+        <div class="sk R d2"><div class="sk-name">React.js</div><div class="sk-cat">Frontend</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="80"></div></div><div class="sk-ghost">80</div></div>
+        <div class="sk R d2"><div class="sk-name">Tailwind CSS</div><div class="sk-cat">Styling</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="78"></div></div><div class="sk-ghost">78</div></div>
+        <div class="sk R d3"><div class="sk-name">Git / GitHub</div><div class="sk-cat">Version Control</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="75"></div></div><div class="sk-ghost">75</div></div>
+        <div class="sk R d3"><div class="sk-name">Framer Motion</div><div class="sk-cat">Animation</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="65"></div></div><div class="sk-ghost">65</div></div>
+        <div class="sk R d3"><div class="sk-name">Node.js</div><div class="sk-cat">Backend</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="60"></div></div><div class="sk-ghost">60</div></div>
+        <div class="sk R d4"><div class="sk-name">Supabase</div><div class="sk-cat">Database &amp; Auth</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="62"></div></div><div class="sk-ghost">62</div></div>
+        <div class="sk R d4"><div class="sk-badge">Learning</div><div class="sk-name">Next.js</div><div class="sk-cat">Framework</div><div class="sk-bar-wrap"><div class="sk-bar" data-w="55"></div></div><div class="sk-ghost">55</div></div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact">
+      <div class="contact-wm">Let's Build</div>
+      <p class="contact-label R">Get in Touch</p>
+      <h2 class="contact-heading R d1">
+        <span style="display:block;">Open to</span>
+        <span class="outline">Any &amp; all</span>
+        <span class="acid">Opportunities</span>
+      </h2>
+      <div class="contact-layout">
+
+        <!-- FORM -->
+        <div class="R d2">
+          <div class="form-title">Send me a message</div>
+          <p class="form-sub">Have an opportunity or project? I reply within 24 hours.</p>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Your Name</label>
+                <input type="text" id="fname" name="name" placeholder="John Smith" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="femail">Email Address</label>
+                <input type="email" id="femail" name="email" placeholder="john@email.com" autocomplete="off">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fsubject">Topic</label>
+              <select id="fsubject" name="subject">
+                <option value="" disabled selected>Select a topic...</option>
+                <option value="job">Job Opportunity</option>
+                <option value="internship">Internship</option>
+                <option value="freelance">Freelance Project</option>
+                <option value="collab">Collaboration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fmessage">Message</label>
+              <textarea id="fmessage" name="message" placeholder="Tell me about the opportunity..."></textarea>
+            </div>
+            <div class="magnetic" style="display:block;">
+              <button type="submit" class="btn-submit" id="submitBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Send Message
+              </button>
+            </div>
+          </form>
+          <div class="form-success" id="formSuccess">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#d8ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/>
+            </svg>
+            <h3>Message received!</h3>
+            <p>Thanks — I'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="contact-info R d3">
+          <div class="contact-info-title">Direct contact</div>
+          <p class="contact-info-sub">Prefer to reach out directly?</p>
+
+          <div class="contact-method">
+            <div class="cm-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="cm-label">Email</div><div class="cm-val"><a href="mailto:orisscharles@gmail.com">orisscharles@gmail.com</a></div></div>
+          </div>
+
+          <div class="contact-method">
+            <div class="cm-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.59 1.25h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="cm-label">Phone / WhatsApp</div><div class="cm-val"><a href="https://wa.me/27681457307">+27 68 145 7307</a></div></div>
+          </div>
+
+          <div class="contact-method">
+            <div class="cm-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="cm-label">Location</div><div class="cm-val">Johannesburg, South Africa</div></div>
+          </div>
+
+          <div class="socials-title">Find me on</div>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/orisscharles" target="_blank" rel="noopener" class="soc-icon" data-tip="LinkedIn">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://github.com/orisscharles-stack" target="_blank" rel="noopener" class="soc-icon" data-tip="GitHub">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77A5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+            <a href="https://wa.me/27681457307" target="_blank" rel="noopener" class="soc-icon" data-tip="WhatsApp">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a href="https://instagram.com/orisscharles" target="_blank" rel="noopener" class="soc-icon" data-tip="Instagram">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://facebook.com/orisscharles" target="_blank" rel="noopener" class="soc-icon" data-tip="Facebook">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@orisscharles" target="_blank" rel="noopener" class="soc-icon" data-tip="TikTok">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            </a>
+          </div>
+
+          <div class="status-grid">
+            <div class="status-box"><div class="sb-label">Status</div><div class="sb-val green">Open to Work</div></div>
+            <div class="status-box"><div class="sb-label">Response</div><div class="sb-val">Within 24h</div></div>
+            <div class="status-box"><div class="sb-label">Role</div><div class="sb-val">Junior / Trainee</div></div>
+            <div class="status-box"><div class="sb-label">Cert ID</div><div class="sb-val" style="font-size:10px;font-weight:400;letter-spacing:.04em;">H64483-475597</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Charles Oriss</p>
+    <p>HTML · CSS · JavaScript</p>
+    <p style="color:var(--acid);">Open to Work</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
