@@ -230,7 +230,11 @@ if (heroNameEl) {
   });
 }
 
-// ── Hover scramble — award rows ──
+
+
+
+
+// ── Award rows scramble on hover ──────────────
 document.querySelectorAll('.aw-row').forEach(row => {
   const nm = row.querySelector('.aw-name');
   if (!nm) return;
@@ -238,13 +242,31 @@ document.querySelectorAll('.aw-row').forEach(row => {
   row.addEventListener('mouseenter', () => scramble(nm, orig.toUpperCase(), 0));
 });
 
-// ── Hover scramble — nav links ──
+function bindScrambleLinks(selector = '.scramble-link') {
+  document.querySelectorAll(selector).forEach(link => {
+    if (link.dataset.scrambleBound === '1') return;
+    const orig = link.textContent.trim();
+    link.addEventListener('mouseenter', () => {
+      let i = 0;
+      const target = orig.toUpperCase();
+      const id = setInterval(() => {
+        link.textContent = target.split('').map((c, idx) => {
+          if (c === ' ') return ' ';
+          if (idx < i) return target[idx];
+          return CHARS[Math.floor(Math.random() * CHARS.length)];
+        }).join('');
+        i += 0.5;
+        if (i >= target.length) { link.textContent = orig; clearInterval(id); }
+      }, 36);
+    });
+    link.dataset.scrambleBound = '1';
+  });
+}
+
+// ── Nav links scramble on hover ───────────────
 document.querySelectorAll('.nav-links a').forEach(link => {
   const orig = link.textContent.trim();
-  let running = false;
   link.addEventListener('mouseenter', () => {
-    if (running) return;
-    running = true;
     let i = 0;
     const target = orig.toUpperCase();
     const id = setInterval(() => {
@@ -254,14 +276,72 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         return CHARS[Math.floor(Math.random() * CHARS.length)];
       }).join('');
       i += 0.5;
-      if (i >= target.length) {
-        link.textContent = orig;
-        clearInterval(id);
-        running = false;
-      }
+      if (i >= target.length) { link.textContent = orig; clearInterval(id); }
     }, 36);
   });
 });
+
+bindScrambleLinks();
+
+// ── Process section — slower scramble ─────────
+// Feels like the text is being decrypted/decoded.
+// Stays scrambled longer before resolving.
+document.querySelectorAll('.process-row').forEach(row => {
+  const title = row.querySelector('.process-title');
+  if (!title) return;
+
+  const orig = title.textContent.trim();
+  let scrambleId = null;
+  let resolveId  = null;
+
+  row.addEventListener('mouseenter', () => {
+    // Clear any running animation first
+    clearInterval(scrambleId);
+    clearTimeout(resolveId);
+
+    // Phase 1 — hold full scramble for 600ms so it feels dramatic
+    let iter = 0;
+    title.textContent = orig.split('').map(c =>
+      c === ' ' ? ' ' : CHARS[Math.floor(Math.random() * CHARS.length)]
+    ).join('');
+
+    // Keep randomising during the hold phase
+    let holdTick = 0;
+    scrambleId = setInterval(() => {
+      holdTick++;
+      // Re-randomise all chars during hold
+      title.textContent = orig.split('').map(c =>
+        c === ' ' ? ' ' : CHARS[Math.floor(Math.random() * CHARS.length)]
+      ).join('');
+
+      // After ~600ms start resolving left to right
+      if (holdTick > 12) {
+        clearInterval(scrambleId);
+        // Phase 2 — resolve slowly, one char every 55ms
+        scrambleId = setInterval(() => {
+          title.textContent = orig.split('').map((c, idx) => {
+            if (c === ' ') return ' ';
+            if (idx < iter) return orig[idx];
+            return CHARS[Math.floor(Math.random() * CHARS.length)];
+          }).join('');
+          iter += 0.3; // slower than the nav version
+          if (iter >= orig.length) {
+            title.textContent = orig;
+            clearInterval(scrambleId);
+          }
+        }, 55);
+      }
+    }, 48);
+  });
+
+  row.addEventListener('mouseleave', () => {
+    // If mouse leaves mid-animation, snap back cleanly
+    clearInterval(scrambleId);
+    clearTimeout(resolveId);
+    title.textContent = orig;
+  });
+});
+
 
 
 
@@ -491,6 +571,7 @@ expRows.forEach(row => {
         expDetail.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
         expDetail.style.opacity = '1';
         expDetail.style.transform = 'translateY(0)';
+        bindScrambleLinks();
       }, 180);
     }
   });

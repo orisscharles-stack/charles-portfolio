@@ -66,8 +66,10 @@
   -->
   
 
-  <!-- PARTICLE BACKGROUND -->
-  <canvas id="canvas"></canvas>
+ <!-- BACKGROUND: aurora layer (bottom) + particle mesh (top) -->
+<canvas id="aurora-canvas"></canvas>
+<canvas id="canvas"></canvas>
+
 
   <!-- ═══ NAV ═══ -->
   <nav>
@@ -199,7 +201,7 @@
       <div class="about-right">
         <div class="about-body R d1">
           <p>I'm a <strong>Full-Stack Developer Trainee</strong> based in Johannesburg, South Africa, with hands-on experience in React and modern web technologies.</p>
-          <p>Currently gaining practical experience at <strong>ITTHYNK Solutions</strong>, where I focus on frontend development and responsive UI design — Tailwind CSS, performance optimisation, and collaborating via Git and GitHub.</p>
+          <p>Currently gaining practical experience at <strong><a class="scramble-link" href="https://www.itthynk.co.za" target="_blank" rel="noopener">ITTHYNK Solutions</a></strong>, where I focus on frontend development and responsive UI design — Tailwind CSS, performance optimisation, and collaborating via Git and GitHub.</p>
           <p>Certified in <strong>Microsoft Power Platform Fundamentals (PL-900)</strong>. Actively expanding expertise across backend, database design, and software architecture.</p>
         </div>
         <div class="about-stats R d2">
@@ -218,13 +220,13 @@
       <div class="exp-grid">
         <div class="exp-timeline R d2">
           <div class="exp-row active"
-            data-detail="<div class='exp-detail-title'>IT Intern — Frontend Developer</div><div class='exp-detail-co'>ITTHYNK Solutions &nbsp;·&nbsp; Johannesburg &nbsp;·&nbsp; Sep 2025 – Present</div><ul class='exp-bullets'><li>Designed and developed responsive UI layouts using React.js, ensuring optimal user experience across multiple devices and screen sizes.</li><li>Styled web applications with Tailwind CSS, delivering clean, modern interfaces that align precisely with design specifications.</li><li>Optimised frontend performance through code analysis, component refactoring, and best-practices implementation.</li><li>Collaborated with the development team using Git and GitHub, contributing to code reviews and maintaining version control standards.</li><li>Created technical documentation and development guides to support team knowledge sharing and project continuity.</li></ul>">
+            data-detail="<div class='exp-detail-title'>IT Intern — Frontend Developer</div><div class='exp-detail-co'><a class='scramble-link' href='https://www.itthynk.co.za' target='_blank' rel='noopener'>ITTHYNK Solutions</a> &nbsp;·&nbsp; Johannesburg &nbsp;·&nbsp; Sep 2025 – Present</div><ul class='exp-bullets'><li>Designed and developed responsive UI layouts using React.js, ensuring optimal user experience across multiple devices and screen sizes.</li><li>Styled web applications with Tailwind CSS, delivering clean, modern interfaces that align precisely with design specifications.</li><li>Optimised frontend performance through code analysis, component refactoring, and best-practices implementation.</li><li>Collaborated with the development team using Git and GitHub, contributing to code reviews and maintaining version control standards.</li><li>Created technical documentation and development guides to support team knowledge sharing and project continuity.</li></ul>">
             <div class="exp-role">Frontend Developer Intern</div>
-            <div class="exp-company">ITTHYNK Solutions</div>
+            <a class="exp-company scramble-link" href="https://www.itthynk.co.za" target="_blank" rel="noopener">ITTHYNK Solutions</a>
             <div class="exp-period">Sep 2025 — Present</div>
           </div>
         </div>
-        <div class="exp-detail R d3" id="expDetail" style="opacity:0;"></div>
+        <div class="exp-detail R d3" id="expDetail"></div>
       </div>
     </section>
 
@@ -373,7 +375,7 @@
         <div class="aw-list R d1">
           <div class="aw-row"><span class="aw-name">Microsoft PL-900</span><div class="aw-right"><span class="aw-cat">Power Platform Fundamentals</span><span class="aw-year">Jan 2026</span></div></div>
           <div class="aw-row"><span class="aw-name">National Senior Certificate</span><div class="aw-right"><span class="aw-cat">Grade 12</span><span class="aw-year">2023</span></div></div>
-          <div class="aw-row"><span class="aw-name">ITTHYNK Solutions</span><div class="aw-right"><span class="aw-cat">Frontend Developer Intern</span><span class="aw-year">2025 – Now</span></div></div>
+          <div class="aw-row"><a class="aw-name scramble-link" href="https://www.itthynk.co.za" target="_blank" rel="noopener">ITTHYNK Solutions</a><div class="aw-right"><span class="aw-cat">Frontend Developer Intern</span><span class="aw-year">2025 – Now</span></div></div>
         </div>
       </div>
     </section>
