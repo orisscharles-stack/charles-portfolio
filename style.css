@@ -700,9 +700,11 @@ main { position: relative; z-index: 2; }
 .scramble-link:hover { color: var(--acid); }
 .socials-title { font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dimmer); margin: 28px 0 13px; }
 .social-icons { display: flex; flex-wrap: wrap; gap: 8px; }
-.soc-icon { width: 40px; height: 40px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; text-decoration: none; background: rgba(255,255,255,0.03); transition: border-color 0.25s, background 0.25s, transform 0.25s; position: relative; }
+.soc-icon { width: 40px; height: 40px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; text-decoration: none; background: rgba(255,255,255,0.03); transition: border-color 0.25s, background 0.25s, transform 0.25s, color 0.25s; position: relative; color: var(--acid); }
 .soc-icon:hover { border-color: var(--acid); background: rgba(216,255,0,0.08); transform: translateY(-3px); }
 .soc-icon:hover svg { stroke: var(--acid); }
+.soc-icon:active { color: #006400; }
+.soc-icon:active svg { stroke: #006400; }
 .soc-icon svg { transition: stroke 0.25s; }
 .soc-icon::after { content: attr(data-tip); position: absolute; bottom: calc(100% + 7px); left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; background: var(--acid); color: var(--black); opacity: 0; pointer-events: none; transition: opacity 0.2s, bottom 0.2s; }
 .soc-icon:hover::after { opacity: 1; bottom: calc(100% + 11px); }
