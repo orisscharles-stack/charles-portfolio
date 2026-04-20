@@ -716,3 +716,14 @@ window.addEventListener('scroll', () => {
     a.classList.toggle('active', a.getAttribute('href') === '#' + current);
   });
 }, { passive: true });
+
+(function() {
+  const pcPhoto = document.getElementById('pc-photo-omolemo');
+  if (!pcPhoto) return;
+  if (pcPhoto.complete && pcPhoto.naturalWidth > 0) {
+    pcPhoto.classList.add('loaded');
+  } else {
+    pcPhoto.addEventListener('load', () => pcPhoto.classList.add('loaded'), { once: true });
+    pcPhoto.addEventListener('error', () => { pcPhoto.style.display = 'none'; }, { once: true });
+  }
+})();
